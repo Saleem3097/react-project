@@ -1,0 +1,30 @@
+.dark{
+    background-color: gray; 
+    color:white;
+}
+
+.container{
+    padding-top: 10px;
+    width:15em;
+    margin: 0 0.2em;
+    float: left;
+}
+  .pic img{
+    width: 15em;
+    height: 150px;
+  }
+  .title{
+    font-weight: bold;
+    margin-bottom: 1em;
+    color:white;
+    width:15em;
+  }
+  .channel, .views{
+    font-size: small;
+    color:#ccc;
+    margin-bottom: 0.2em;
+  }
+  
+  .views span{
+    padding: 0 0.5em;
+  }
