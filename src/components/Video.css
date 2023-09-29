@@ -1,30 +1,72 @@
-.dark{
-    background-color: gray; 
-    color:white;
+/* No changes in CSS for the individual container */
+
+.dark {
+  background-color: gray;
+  color: white;
 }
 
-.container{
-    padding-top: 10px;
-    width:15em;
-    margin: 0 0.2em;
-    float: left;
+.container {
+  padding-top: 10px;
+  padding-bottom:10px ;
+  width: 15em;
+  margin: 0 0.2em;
+  border:2px solid rgb(100, 96, 96);
 }
-  .pic img{
-    width: 15em;
-    height: 150px;
-  }
-  .title{
-    font-weight: bold;
-    margin-bottom: 1em;
-    color:white;
-    width:15em;
-  }
-  .channel, .views{
-    font-size: small;
-    color:#ccc;
-    margin-bottom: 0.2em;
-  }
-  
-  .views span{
-    padding: 0 0.5em;
-  }
+
+/* Use CSS Grid for horizontal layout */
+.container-wrapper {
+  display: grid;
+  grid-template-rows: 1fr; /* Keep a single row */
+  grid-auto-flow: column; /* Arrange items in columns */
+  gap: 0.2em;
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.pic img {
+  width: 15em;
+  height: 150px;
+  border-radius: 3%;
+  object-fit:cover;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 1em;
+  color: white;
+  width: 15em; /* Full width within the container */
+}
+
+.channel {
+  font-size: small;
+  color: #ccc;
+  margin-bottom: 0.2em;
+}
+
+.channel.verified {
+  /* Add styling for verified channels here, e.g., adding a checkmark badge */
+  font-weight: bold;
+  color: #00ff00; /* Green color for verified channels */
+}
+
+.views {
+  font-size: small;
+  color: #ccc;
+  margin-bottom: 0.2em;
+}
+
+.views span {
+  padding: 0 0.5em;
+}
+
+.like{
+  float: right;
+}
+
+
+/* Video.css */
+
+/* Ensure the Video component is displayed inline-block */
+.Video {
+  display: inline-block;
+  margin-right: 0.2em; /* Add some spacing between videos */
+}

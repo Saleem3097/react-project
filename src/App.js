@@ -1,34 +1,49 @@
-import React from "react";
-import Navbar from "./components/Navbar";
+import React, { useState } from "react";
 import Video from "./components/Video";
+import VideoDB from "./data/Data";
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const [videos, setVideos] = useState(VideoDB);
+
+  const addVideo = () => {
+    // Create a new video object with unique ID
+    const newVideo = {
+      id: videos.length + 1, // Generate a unique ID
+      title: "New Video", // Provide default values
+      views: 0,
+      time: "0:00",
+      channel: "Unknown",
+      verified: false,
+    };
+
+    // Update the videos state with the new video
+    setVideos([...videos, newVideo]);
+  };
+
   return (
     <div className="App">
-      <Navbar
-      className="btn btn-danger"
-      />
-      <Video
-        title="React tutorial from Mohammed Saleem"
-        channel="Coding with Harry"
-        views="10000"
-        image="https://picsum.photos/200/300"
-        date="1 month ago"
-      />
-      <Video
-        title="React tutorial from Mohammed Saleem"
-        channel="Coding with Harry"
-        views="1M"
-        image="https://hips.hearstapps.com/hmg-prod/images/701/mia-khalifa-answers-googled-sex-questions-3-1509453482.jpg?resize=1200:*"
-        date="1 year ago"
-      />
-      <Video
-        title="React tutorial from Mohammed Saleem"
-        views="1M"
-        image="https://hips.hearstapps.com/hmg-prod/images/701/mia-khalifa-answers-googled-sex-questions-3-1509453482.jpg?resize=1200:*"
-        date="1 year ago"
-      />
+      <div>
+        <button onClick={addVideo}>
+          Add Video
+        </button>
+      </div>
+      <div className="video-container">
+        {videos.map((video) => (
+          <div key={video.id} className="video-item">
+            <Video
+              id={video.id}
+              title={video.title}
+              channel={video.channel}
+              views={video.views}
+              image={video.image}
+              date={video.date}
+              verified={video.verified}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
